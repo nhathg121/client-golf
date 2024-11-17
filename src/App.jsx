@@ -35,7 +35,6 @@ function App() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await axios.post("/create", formData);
-    console.log(data);
     if (data.data.success) {
       setAddSection(false);
       alert(data.data.message);
@@ -49,7 +48,6 @@ function App() {
   };
   const getFetchData = async () => {
     const data = await axios.get("/");
-    console.log(data);
     if (data.data.success) {
       setDataList(data.data.data);
     }
@@ -69,7 +67,6 @@ function App() {
 
   const handleUpdate = async (e) => {
     e.preventDefault();
-    console.log(formDataEdit);
 
     const data = await axios.put("/update", formDataEdit);
     if (data.data.success) {
@@ -129,7 +126,6 @@ function App() {
             <tbody>
               {dataList[0] ? (
                 dataList.map((el, i) => {
-                  console.log(el, i);
                   return (
                     <tr key={i}>
                       <td>{el.name}</td>
